@@ -63,7 +63,7 @@ d = 1./d;
 
 
 labels= update_labels_from_labelsC(labels, labelsC_out);
-
+[~, ~, labels] = unique(labels, 'stable');
 
 
 end % function
@@ -87,6 +87,4 @@ function labels_new = update_labels_from_labelsC(labels, labelsC)
         labels_new(idx_points) = rep_id;       % 点的标签改成代表ID
     end
 
-    % labels <= 0（噪声）保持原值
-    % 已经在开头拷贝时保留了，不用再处理
 end
